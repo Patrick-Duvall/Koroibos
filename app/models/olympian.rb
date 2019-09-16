@@ -7,4 +7,10 @@ class Olympian < ApplicationRecord
   def sport
     sports.first.name
   end
+
+  def medal_count
+    olympian_events
+    .where("medal NOT LIKE 'NA'")
+    .count
+  end
 end
