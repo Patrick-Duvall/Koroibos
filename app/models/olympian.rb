@@ -8,6 +8,10 @@ class Olympian < ApplicationRecord
     youngest_age = minimum(:age)
     find_by(age: youngest_age)
   end
+  def self.oldest
+    oldest_age = maximum(:age)
+    find_by(age: oldest_age)
+  end
 
   def sport
     sports.first.name
