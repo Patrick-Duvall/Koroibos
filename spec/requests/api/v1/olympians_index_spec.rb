@@ -22,4 +22,24 @@ describe "Olympians Index do" do
     expect(data["olympians"][0]['sport']).to eq(@s1.name)
     expect(data["olympians"][0]['total_medals_won']).to eq(0)
   end
+
+  it "gets youngest olympian do" do
+    get "/api/v1/olympians?age=youngest"
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    data = JSON.parse(response.body)
+    require "pry"; binding.pry
+  end
+
+#   {
+#   [
+#     {
+#       "name": "Ana Iulia Dascl",
+#       "team": "Romania",
+#       "age": 13,
+#       "sport": "Swimming"
+#       "total_medals_won": 0
+#     }
+#   ]
+# }
 end
