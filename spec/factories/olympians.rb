@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :olympian do
-    sequence :name do |n| "Olympian #{n}" }
+    sequence :name {|n| "Olympian #{n}" }
     sequence :sex { |n| n % 2 == 0 ? "M" : "F"}
     sequence :age {|n| n}
     sequence :height {|n| 100 + n }
