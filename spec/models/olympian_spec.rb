@@ -33,7 +33,7 @@ RSpec.describe Olympian, type: :model do
       expect(Olympian.youngest).to eq(@o1)
     end
     it "#oldest" do
-      expect(Olympian.youngest).to eq(@o3)
+      expect(Olympian.oldest).to eq(@o3)
     end
 
   end

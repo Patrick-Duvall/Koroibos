@@ -10,7 +10,7 @@ describe "Olympians Index do" do
     create(:olympian_sport, olympian_id: @o3.id, sport_id: @s3.id)
   end
 
-  xit "gets all olympians" do
+  it "gets all olympians" do
     get "/api/v1/olympians"
     expect(response).to be_successful
     expect(response.status).to eq(200)
@@ -19,11 +19,11 @@ describe "Olympians Index do" do
     expect(data["olympians"][0]['name']).to eq(@o1.name)
     expect(data["olympians"][0]['team']).to eq(@o1.team)
     expect(data["olympians"][0]['age']).to eq(@o1.age)
-    expect(data["olympians"][0]['sport']).to eq(@s3.name)
+    expect(data["olympians"][0]['sport']).to eq(@s1.name)
     expect(data["olympians"][0]['total_medals_won']).to eq(0)
   end
 
-  xit "gets youngest olympian do" do
+  it "gets youngest olympian do" do
     # cannot be in same format as project outline
     get "/api/v1/olympians?age=youngest"
     expect(response).to be_successful
@@ -39,7 +39,7 @@ describe "Olympians Index do" do
 
   it "gets oldest olympian do" do
     # cannot be in same format as project outline
-    get "/api/v1/olympians?age=youngest"
+    get "/api/v1/olympians?age=oldest"
     expect(response).to be_successful
     expect(response.status).to eq(200)
     data = JSON.parse(response.body)
@@ -47,7 +47,7 @@ describe "Olympians Index do" do
     expect(data["olympians"][0]['name']).to eq(@o3.name)
     expect(data["olympians"][0]['team']).to eq(@o3.team)
     expect(data["olympians"][0]['age']).to eq(@o3.age)
-    expect(data["olympians"][0]['sport']).to eq(@s1.name)
+    expect(data["olympians"][0]['sport']).to eq(@s3.name)
     expect(data["olympians"][0]['total_medals_won']).to eq(0)
   end
 
