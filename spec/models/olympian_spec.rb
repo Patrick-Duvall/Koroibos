@@ -22,7 +22,7 @@ RSpec.describe Olympian, type: :model do
       expect(@o1.sport).to eq(@s1.name)
     end
     it "total_medals_won" do
-      expect(@o1.medal_count).to eq(2)
+      expect(@o1.total_medals_won).to eq(2)
     end
 
   end
