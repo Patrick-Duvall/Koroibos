@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "relationships" do
+    it { should belong_to(:sport) }
+    it { should have_many(:olympians) }
+    it { should have_many(:events).through(:olympian_events) }
+  end
 end
