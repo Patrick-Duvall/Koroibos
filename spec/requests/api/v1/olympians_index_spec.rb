@@ -22,4 +22,19 @@ describe "Olympians Index do" do
     expect(data["olympians"][0]['sport']).to eq(@s1.name)
     expect(data["olympians"][0]['total_medals_won']).to eq(0)
   end
+
+  it "gets youngest olympian do" do
+    # cannot be in same format as project outline
+    get "/api/v1/olympians?age=youngest"
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
+    data = JSON.parse(response.body)
+    expect(data["olympians"].count).to eq(1)
+    expect(data["olympians"][0]['name']).to eq(@o1.name)
+    expect(data["olympians"][0]['team']).to eq(@o1.team)
+    expect(data["olympians"][0]['age']).to eq(@o1.age)
+    expect(data["olympians"][0]['sport']).to eq(@s1.name)
+    expect(data["olympians"][0]['total_medals_won']).to eq(0)
+  end
+
 end

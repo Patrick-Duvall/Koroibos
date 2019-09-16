@@ -1,4 +1,4 @@
-class OlympianSerializer
+class OlympiansSerializer
   def initialize(olympians)
     @olympians = olympians
   end
