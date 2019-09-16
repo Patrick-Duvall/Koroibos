@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2019_09_16_160940) do
     t.index ["sport_id"], name: "index_events_on_sport_id"
   end
 
+  create_table "olympian_events", force: :cascade do |t|
+    t.bigint "olympian_id"
+    t.string "medal"
+    t.string "games"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_olympian_events_on_event_id"
+    t.index ["olympian_id"], name: "index_olympian_events_on_olympian_id"
+  end
+
   create_table "olympian_sports", force: :cascade do |t|
     t.bigint "sport_id"
     t.bigint "olympian_id"
@@ -43,17 +54,6 @@ ActiveRecord::Schema.define(version: 2019_09_16_160940) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "olympic_events", force: :cascade do |t|
-    t.bigint "olympian_id"
-    t.string "medal"
-    t.string "games"
-    t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_olympic_events_on_event_id"
-    t.index ["olympian_id"], name: "index_olympic_events_on_olympian_id"
-  end
-
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2019_09_16_160940) do
   end
 
   add_foreign_key "events", "sports"
+  add_foreign_key "olympian_events", "events"
+  add_foreign_key "olympian_events", "olympians"
   add_foreign_key "olympian_sports", "olympians"
   add_foreign_key "olympian_sports", "sports"
-  add_foreign_key "olympic_events", "events"
-  add_foreign_key "olympic_events", "olympians"
 end

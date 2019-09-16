@@ -1,6 +1,6 @@
-class CreateOlympicEvents < ActiveRecord::Migration[5.2]
+class CreateOlympianEvents < ActiveRecord::Migration[5.2]
   def change
-    create_table :olympic_events do |t|
+    create_table :olympian_events do |t|
       t.references :olympian, foreign_key: true
       t.string :medal
       t.string :games
