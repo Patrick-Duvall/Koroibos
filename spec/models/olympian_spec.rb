@@ -30,7 +30,7 @@ RSpec.describe Olympian, type: :model do
 
   describe "class methods" do
     it "#youngest" do
-      expect Olympian.youngest.to eq(@o1)
+      expect(Olympian.youngest).to eq(@o1)
     end
 
   end
