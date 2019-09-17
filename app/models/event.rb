@@ -8,5 +8,6 @@ class Event < ApplicationRecord
   .select('olympians.*, olympian_events.medal')
   .where("olympian_events.event_id = #{id}")
   .where("olympian_events.medal NOT LIKE 'NA'")
+  .distinct
   end
 end
