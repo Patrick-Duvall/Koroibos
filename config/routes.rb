@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :olympians, only: [:index]
       get '/olympian_stats' => 'olympian_stats#index'
+      resources :events, only: [:index]
     end
   end
 end
