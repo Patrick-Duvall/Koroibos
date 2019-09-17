@@ -12,7 +12,10 @@ describe "Olympians Index do" do
     expect(response.status).to eq(200)
     data = JSON.parse(response.body)
     expect(data['olympian_stats']["total_competing_olympians"]).to eq(4)
-    require "pry"; binding.pry
+    expect(data['olympian_stats']).to include("average_age")
+    expect(data['olympian_stats']["average_weight"]["unit"]).to eq("kg")
+    expect(data['olympian_stats']["average_weight"]).to include("male_olympians")
+    expect(data['olympian_stats']["average_weight"]).to include("female_olympians")
   end
 end
 # {
