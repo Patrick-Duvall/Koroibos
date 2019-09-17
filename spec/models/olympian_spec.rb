@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe Olympian, type: :model do
 
   before :each do
-    @o1, @o2, @o3 = create_list(:olympian, 3)
+    @o1, @o2, @o3, @o4 = create_list(:olympian, 4)
     @s1, @s2 = create_list(:sport, 2)
     @e1, @e2  = create_list(:event, 2, sport_id: @s1.id)
     create(:olympian_sport, olympian_id: @o1.id, sport_id: @s1.id)
+    create(:olympian_sport, olympian_id: @o4.id, sport_id: @s2.id)
     create(:olympian_sport, olympian_id: @o1.id, sport_id: @s2.id)
     create(:olympian_event, olympian_id: @o1.id, event_id: @e1.id, medal: "Gold")
     create(:olympian_event, olympian_id: @o1.id, event_id: @e2.id, medal: "Bronze")
@@ -33,7 +34,11 @@ RSpec.describe Olympian, type: :model do
       expect(Olympian.youngest).to eq(@o1)
     end
     it "#oldest" do
-      expect(Olympian.oldest).to eq(@o3)
+      expect(Olympian.oldest).to eq(@o4)
+    end
+    it "#male_average_weight" do
+      weight = (@o2.weight + @o4.weight).fdiv(2)
+      expect(Olympian.male_average_weight).to eq(weight)
     end
 
   end
