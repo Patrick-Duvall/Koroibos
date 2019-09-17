@@ -8,11 +8,11 @@ class OlympianStatsSerializer
     {
         olympian_stats: {
           total_competing_olympians: Olympian.count,
-          average_age: Olympian.average_age,
+          average_age: Olympian.average_age.round(1),
           average_weight: {
             unit: "kg",
-            male_olympians: Olympian.male_average_weight,
-            female_olympians: Olympian.female_average_weight
+            male_olympians: Olympian.male_average_weight.round(1),
+            female_olympians: Olympian.female_average_weight.round(1)
           }
         }
       }
