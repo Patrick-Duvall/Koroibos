@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Olympian, type: :model do
 
   before :each do
-    @o1, @o2, @o3, @o4 = create_list(:olympian, 4)
+    @o1, @o3= create_list(:olympian, 2, sex: "F")
+    @o2, @o4= create_list(:olympian, 2, sex: "M")
     @s1, @s2 = create_list(:sport, 2)
     @e1, @e2  = create_list(:event, 2, sport_id: @s1.id)
     create(:olympian_sport, olympian_id: @o1.id, sport_id: @s1.id)
