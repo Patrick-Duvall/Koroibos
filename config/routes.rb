@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'welcome#index'
   namespace :api do
     namespace :v1 do
       resources :olympians, only: [:index]
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  get '*other', to: redirect('/')
 end
