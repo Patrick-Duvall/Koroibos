@@ -18,7 +18,16 @@ describe " Event Medalists " do
     expect(response).to be_successful
     expect(response.status).to eq(200)
     data = JSON.parse(response.body)
-    require "pry"; binding.pry
+    expect(data['event']).to eq(@e1.name)
+    expect(data['medalists'].count).to eq(2)
+    expect(data['medalists'][0]['name']).to eq(@o1.name)
+    expect(data['medalists'][0]['team']).to eq(@o1.team)
+    expect(data['medalists'][0]['age']).to eq(@o1.age)
+    expect(data['medalists'][0]['medal']).to eq(@oe1.medal)
+  end
+  it "event not found" do
+    get "/api/v1/events/#{@e1.id + 1}/medalists"
+    expect(response.status).to eq(404)
   end
 end
 
