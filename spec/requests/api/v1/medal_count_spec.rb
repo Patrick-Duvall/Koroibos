@@ -31,7 +31,7 @@ describe "Medal Count do" do
     expect(response).to be_successful
     expect(response.status).to eq(200)
     data = JSON.parse(response.body)
-    expected = {countries: 
+    expected = {countries:
       [
         { name: "USA",
           gold: 3,
@@ -49,22 +49,3 @@ describe "Medal Count do" do
     expect(data).to eq(expected)
   end
 end
-
-# ```
-# {
-#   countries: [
-#     {
-#       name: United States,
-#       gold: 3,
-#       silver: 6,
-#       bronze: 5
-#     },
-     {
-      name: Japan,
-      gold: 2,
-      silver: 4,
-      bronze: 3
-    }
-#   ]
-# }
-# ```
