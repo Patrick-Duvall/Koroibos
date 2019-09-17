@@ -16,7 +16,6 @@ describe "Medal Count do" do
     @o5 = create(:olympian, team: "France")
     @o6 = create(:olympian, team: "France")
 
-    create_list(:olympian, 5)
 
     @oe1 = create(:olympian_event, olympian_id: @o1.id, event_id: (@e1.id), medal: "Gold")
     @oe2 = create(:olympian_event, olympian_id: @o1.id, event_id: (@e5.id), medal: "Bronze")
@@ -31,21 +30,22 @@ describe "Medal Count do" do
     expect(response).to be_successful
     expect(response.status).to eq(200)
     data = JSON.parse(response.body)
-    expected = {countries:
-      [
-        { name: "USA",
-          gold: 3,
-          silver: 6,
-          bronze: 5
-        },
-        {
-         name: "France",
-         gold: 1,
-         silver: 0,
-         bronze: 1
-        }
-      ]
-    }
-    expect(data).to eq(expected)
+    usa = { "name" => "USA",
+            "medals" => {
+              "gold" => 1,
+              "silver" => 1,
+              "bronze" => 2
+            }
+          }
+    france = { "name" => "France",
+               "medals" => {
+                 "gold" => 1,
+                 "silver" => 0,
+                 "bronze" => 1
+               }
+             }
+
+    expect(data['countries']).to include(usa)
+    expect(data['countries']).to include(france)
   end
 end
