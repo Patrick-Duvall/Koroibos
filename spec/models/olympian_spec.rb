@@ -40,6 +40,14 @@ RSpec.describe Olympian, type: :model do
       weight = (@o2.weight + @o4.weight).fdiv(2)
       expect(Olympian.male_average_weight).to eq(weight)
     end
+    it "#female_average_weight" do
+      weight = (@o1.weight + @o3.weight).fdiv(2)
+      expect(Olympian.female_average_weight).to eq(weight)
+    end
+    it "#average_age" do
+      age = Olympian.average(:age)
+      expect(Olympian.average_age).to eq(age)
+    end
 
   end
 

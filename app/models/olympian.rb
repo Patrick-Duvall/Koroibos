@@ -18,6 +18,13 @@ class Olympian < ApplicationRecord
     where(sex: "M")
     .average(:weight)
   end
+  def self.female_average_weight
+    where(sex: "F")
+    .average(:weight)
+  end
+  def self.average_age
+    average(:age)
+  end
 
 
 

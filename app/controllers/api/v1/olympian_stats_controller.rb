@@ -2,7 +2,7 @@ class Api::V1::OlympianStatsController < ApplicationController
   def index
     retval = {olympian_stats: {
       total_competing_olympians: Olympian.count,
-      average_age: Olympian.average(:age),
+      average_age: Olympian.average_age,
       average_weight: {
         unit: "kg",
         male_olympians: Olympian.male_average_weight,
