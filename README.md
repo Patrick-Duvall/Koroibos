@@ -2,6 +2,9 @@
 
 ## About 
 
+Koroibos is a JSON API that displays information from the 2016 Summer Olympic Games, read from an included CSV. This is an assessment for [Turing School of Software & Design](https://turing.io/) and was completed within a 48-hour timeframe.
+
+
 ## Schema
 ![image](https://user-images.githubusercontent.com/35322570/65082698-cc0e7500-d963-11e9-9002-5c5c987663d5.png)
 
@@ -128,5 +131,24 @@ Returns all countries and their medal count in the following format:
 }
 
 ```
+
+## Local Installation
+
+### Requirements
+
+- Rails 5.2
+- Ruby 2.4.1
+- Postgres
+
+### Setup
+- `git clone git@github.com:Patrick-Duvall/Koroibos.git`
+- `cd koroibos`
+- `bundle install`
+
+### Database
+Koroibos is setup using [Postgres](https://www.postgresql.org/). Once/If you have it installed run `rake db:{create,migrate,seed}` This will take about 30 seconds
+
+### Testing
+Testing is done in rspec and can be run with `bundle exec rspec`
 
 
