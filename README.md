@@ -2,9 +2,9 @@
 
 ## About 
 
-Koroibos is a JSON API that displays information from the 2016 Summer Olympic Games, read from an included CSV. This is an assessment for [Turing School of Software & Design](https://turing.io/) and was completed within a 48-hour timeframe.
+Koroibos is a JSON API that displays information from the 2016 Summer Olympic Games, read from an included CSV. This is an assessment for [Turing School of Software & Design](https://turing.io/) and was completed within a 48-hour timeframe with one hand.
 
-All of the endpoints for this app can be hit at https://koroibos-assessment.herokuapp.com
+All of the endpoints for this app can be hit at https://koroibos-assessment.herokuapp.com by appending the endpoint i.e. `https://koroibos-assessment.herokuapp.com/api/v1/olympians`
 
 
 ## Schema
